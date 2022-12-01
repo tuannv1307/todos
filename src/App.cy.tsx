@@ -1,6 +1,10 @@
 import App from "./App";
 
 describe("App.cy.tsx", () => {
+  // beforeEach(() => {
+  //   cy.wait(2000);
+  // });
+
   it("is true", () => {
     cy.viewport(1000, 1000);
     expect(true).to.be.true; // yup, fine
@@ -27,11 +31,11 @@ describe("App.cy.tsx", () => {
     cy.mount(<App />);
 
     cy.get('[data-hook="new-todo"]')
-      .type("{enter}a")
+      .type("{enter}abc")
       .focus()
       .trigger("keydown", { key: "Enter" });
 
-    cy.get('[data-hook="todo"]').should("have.text", "a");
+    cy.get('[data-hook="todo"]').should("have.text", "abc");
 
     cy.wait(2000);
   });
@@ -41,11 +45,11 @@ describe("App.cy.tsx", () => {
     cy.mount(<App />);
 
     cy.get('[data-hook="new-todo"]')
-      .type("{enter}b")
+      .type("{enter}bcd")
       .focus()
       .trigger("keydown", { key: "Enter" });
 
-    // cy.wait(2000);
+    cy.wait(2000);
 
     cy.get('[data-hook="toggle-all"]').click();
 
@@ -57,7 +61,7 @@ describe("App.cy.tsx", () => {
     cy.mount(<App />);
 
     cy.get('[data-hook="new-todo"]')
-      .type("{enter}c")
+      .type("{enter}cde")
       .focus()
       .trigger("keydown", { key: "Enter" });
 
@@ -76,7 +80,7 @@ describe("App.cy.tsx", () => {
     cy.mount(<App />);
 
     cy.get('[data-hook="new-todo"]')
-      .type("{enter}d")
+      .type("{enter}def")
       .focus()
       .trigger("keydown", { key: "Enter" });
 
@@ -97,7 +101,7 @@ describe("App.cy.tsx", () => {
     cy.mount(<App />);
 
     cy.get('[data-hook="new-todo"]')
-      .type("e")
+      .type("efg")
       .focus()
       .trigger("keydown", { key: "Enter" });
 

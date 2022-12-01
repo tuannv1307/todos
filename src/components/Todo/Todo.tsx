@@ -56,8 +56,8 @@ const Todo = ({ id, name, completed }: TodoProps) => {
     }
   };
 
-  const handleOnChangeEdit = (e: React.FormEvent<HTMLInputElement>) => {
-    setValueEdit(e.currentTarget.value);
+  const handleOnChangeEdit = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValueEdit(e.target.value);
   };
   return (
     <div className={st(classes.root, { isEdit })} key={id} data-hook="todo">

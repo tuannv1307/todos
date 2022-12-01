@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import React, { memo, useState, ChangeEvent } from "react";
 import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
 import { st, classes } from "./Header.st.css";
@@ -22,8 +22,8 @@ const Header = () => {
 
   const dispatch = useDispatch();
 
-  const handleOnChangeInput = (e: React.FormEvent<HTMLInputElement>) => {
-    setValueInput(e.currentTarget.value);
+  const handleOnChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setValueInput(e.target.value);
   };
 
   const handleAddTodo = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -38,9 +38,8 @@ const Header = () => {
     }
     if (e.key === "Enter") {
       dispatch(createTodo(todo));
+      setValueInput("");
     } else if (e.key === "Escape") setValueInput("");
-
-    setValueInput("");
   };
   return (
     <div className={st(classes.root)}>
